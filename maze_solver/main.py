@@ -109,7 +109,7 @@ with open('./input.txt', 'r') as f:
     elif i == "":
         solve(maze)
         maze = []
-    else:
+    elif i != "":
       print(i)
   if maze != []:
     solve(maze)
