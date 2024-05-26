@@ -97,20 +97,26 @@ def solve(maze):
   start, goal = locate_S_G(maze)
   exploration = explore(maze, start, goal)
   route = get_route(exploration, start, goal)
-  print("S", *route, "G", "\n")
+  print("S", *route, "G")
 
+mazes = {}
 with open('./input.txt', 'r') as f:
   lines = f.readlines()
-  maze = []
+  current_key = ""
+  current_maze = []
   for i in lines:
     i = i.rstrip()
     if i.startswith("#"):
-      maze.append(i.split(" "))
-    elif i == "":
-        solve(maze)
-        maze = []
-    elif i != "":
-      print(i)
-  if maze != []:
-    solve(maze)
-    maze = []
+      current_maze.append(i.split(" "))
+    elif i:
+      current_key = i
+    else:
+      mazes[current_key] = current_maze
+      current_key = ""
+      current_maze = []
+  mazes[current_key] = current_maze
+
+for name, maze in mazes.items():
+  print(name)
+  solve(maze)
+  print()
