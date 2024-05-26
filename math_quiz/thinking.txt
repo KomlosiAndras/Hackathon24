@@ -5,6 +5,7 @@ s = (300+x)/20 illetve s = x/5, ha ezt a két képletet egymás mellé állítju
 A 8cm és 6cm oldalélű kockákat egymásra ragasztjuk úgy hogy a két kocka egy-egy sarka összeérjen így a 6cm-es kocka két oldala mentén lesz egy 2cm széles hely a 8cm-es kockához képest, ebbe a helybe tudjuk beilleszteni a két kicsi 2cm-es kockát, ezután a testből ki tudunk vágni egy 6x6x14cm-es téglatestet 2 vágással amik a 6cm-es kocka oldalaira illeszkednek, így egy 504 köbcentiméteres téglatestet kaptam
 
 #3. feladat:
+Találgatással dolgoztam, először végig számoltam azt az esetet ha Juliska 10km-et biciklizik, es kevésnek bizonyult, másodjára 15km-el számoltam végig, es már sok volt, így harmadjára 12,5km-el számoltam végig amire kijött az hogy ebben az esetben mindkettőjüknek 3,125 órába telik eljutni a mézeskalácsházhoz.
 
 #4. feladat:
 Egy 5 egység sugarú körben azok a pontok illeszkednek a körívre ahol a koordináták négyzetének összege megegyezik a kör sugarának négyzetével azaz 25-tel, először ezt az 5 négyzetre emelésével lehet elérni, ehez 0-t kell hozzáadni így a (0;5)(5;0)(-5;0)(0;-5) pontok felelnek meg a feladatnak, illetve 25öt még a 3 és 4 számok négyzetre emelésével kaphatunk, így a (3;4),(4;3),(-3;4),(-4;3),(-3;-4),(-4;-3),(3;-4),(4;-3) pontok is megfelelnek, azaz összesen 12 olyan rácspont van amire egy 5 egység sugarú kör körvönala érint.
