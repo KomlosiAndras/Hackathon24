@@ -11,10 +11,13 @@ Találgatással dolgoztam, először végig számoltam azt az esetet ha Juliska 
 Egy 5 egység sugarú körben azok a pontok illeszkednek a körívre ahol a koordináták négyzetének összege megegyezik a kör sugarának négyzetével azaz 25-tel, először ezt az 5 négyzetre emelésével lehet elérni, ehez 0-t kell hozzáadni így a (0;5)(5;0)(-5;0)(0;-5) pontok felelnek meg a feladatnak, illetve 25öt még a 3 és 4 számok négyzetre emelésével kaphatunk, így a (3;4),(4;3),(-3;4),(-4;3),(-3;-4),(-4;-3),(3;-4),(4;-3) pontok is megfelelnek, azaz összesen 12 olyan rácspont van amire egy 5 egység sugarú kör körvönala érint.
 
 #5. feladat:
+az AB pontok távolságát egy pitagoras tétel segítségével meg lehet határozni, ez 5, ebből ki lehet számolni hogy 5*x=2*7 -> 5*x = 14 -> x= 2.8, a háromszög AB oldalához társuló magassága 2.8 egység.
 
 #6. feladat:
 
+
 #7. feladat:
+Ha legalább 21 golyót kell kihúzzak ahoz hogy biztosan legyen piros az azt jelenti hogy minden más színű golyót már kihúztam a zsákból, illet +1et, ami már biztosan piros, azaz 21-1 tehát 20db golyó van ami nem piros, és 10 piros, ellenőrzés képpen meg lehet állapítani hogyha 23 golyót kell kihúzni ahoz hogy biztosan legyen benne mind 3 szín, akkor 23-1 (az utolsó szín), tehát az egyik színből 8db van, ha 10db piros golyó van, egy színből pedig 8, illetve 12 gólyó maradt tehát a 3. színből 12 golyó van, akkor meg lehet állapítani hogyha zöldből van a legtöbb akkor 12 zöld, 8kék és 10 piros golyónk van.
 
 #8. feladat:
 egy négyzetnek 2 átlója van amik metszik egymást, a metszéspontnál egy kisnégyzetet mind kettő átló érint, ezért a két átló által lefedett kisnégyzetek száma 86 azaz egy átló 43 kisnégyzetet érint ami azt jelenti hogy a négyzet egy oldala 43cm, ebből következik hogy a négyzet területe 43*43 azaz 1849 cm^2.
