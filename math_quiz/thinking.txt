@@ -1,0 +1,2 @@
+#8. feladat:
+egy négyzetnek 2 átlója van amik metszik egymást, a metszéspontnál egy kisnégyzetet mind kettő átló érint, ezért a két átló által lefedett kisnégyzetek száma 86 azaz egy átló 43 kisnégyzetet érint ami azt jelenti hogy a négyzet egy oldala 43cm, ebből következik hogy a négyzet területe 43*43 azaz 1849 cm^2.
