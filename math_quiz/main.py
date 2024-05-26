@@ -1,4 +1,4 @@
-print('1.:')
+print('1.: 100')
 print('2.:')
 print('3.:')
 print('4.: 12')

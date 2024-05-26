@@ -1,4 +1,5 @@
 #1. feladat:
+s = (300+x)/20 illetve s = x/5, ha ezt a két képletet egymás mellé állítjuk, azaz: x/5 = (300+x)/20 és ezt levezetjük, akkor megoldásként 100m-et kaptam.
 
 #2. feladat:
 
