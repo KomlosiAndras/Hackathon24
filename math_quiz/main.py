@@ -1,5 +1,5 @@
 print('1.: 100')
-print('2.:')
+print('2.: 504')
 print('3.:')
 print('4.: 12')
 print('5.:')
