@@ -3,8 +3,8 @@ import numpy as np
 def trasform_to_matching_shape(matrix1, matrix2):
     shape_y = max(m.shape[0] for m in (matrix1, matrix2))
     shape_x = max(m.shape[1] for m in (matrix1, matrix2))
-    matrix1 = np.pad(matrix1, ((0, shape_y - matrix1.shape[0]), (0, shape_x - matrix1.shape[1])), 'constant', constant_values=0)
-    matrix2 = np.pad(matrix2, ((0, shape_y - matrix2.shape[0]), (0, shape_x - matrix2.shape[1])), 'constant', constant_values=0)
+    matrix1 = np.pad(matrix1, ((0, shape_y - matrix1.shape[0]), (0, shape_x - matrix1.shape[1])), 'constant', constant_values=1)
+    matrix2 = np.pad(matrix2, ((0, shape_y - matrix2.shape[0]), (0, shape_x - matrix2.shape[1])), 'constant', constant_values=1)
     return matrix1, matrix2
 
 def find_index(ls, item):
