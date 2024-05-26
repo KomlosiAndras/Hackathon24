@@ -18,14 +18,14 @@ def matrix_operator(matrixes, operations):
         if any('*' in i for i in operations):
             i = find_index(operations, '*')
             if type(operations[i-1]) == str:
-                array1 = np.array(matrixes[operations[i-1]])
+                array1 = matrixes[operations[i-1]]
             else:
-                array1 = np.array(operations[i-1])
+                array1 = operations[i-1]
 
             if type(operations[i+1]) == str:
-                array2 = np.array(matrixes[operations[i+1]])
+                array2 = matrixes[operations[i+1]]
             else:
-                array2 = np.array(operations[i+1])
+                array2 = operations[i+1]
 
             for j in range(2): operations.pop(i)
             array1, array2 = trasform_to_matching_shape(array1,array2)
@@ -34,14 +34,14 @@ def matrix_operator(matrixes, operations):
         else:
             i = find_index(operations, '+')
             if type(operations[i-1]) == str:
-                array1 = np.array(matrixes[operations[i-1]])
+                array1 = matrixes[operations[i-1]]
             else:
-                array1 = np.array(operations[i-1])
+                array1 = operations[i-1]
 
             if type(operations[i+1]) == str:
-                array2 = np.array(matrixes[operations[i+1]])
+                array2 = matrixes[operations[i+1]]
             else:
-                array2 = np.array(operations[i+1])
+                array2 = operations[i+1]
 
             for j in range(2): operations.pop(i)
             array1, array2 = trasform_to_matching_shape(array1,array2)
@@ -63,15 +63,14 @@ with open('./input.txt', 'r') as f:
             read_more_matrix = False
         elif i.isalpha() and read_more_matrix:
             if current_key:
-                matrixes[current_key] = current_matrix
+                matrixes[current_key] = np.array(current_matrix)
             current_key = i
             current_matrix = []
         elif read_more_matrix is False:
             operations.append(i.split())
         elif i:
             current_matrix.append([int(n) for n in i.split()])
-    matrixes[current_key] = current_matrix
-
+    matrixes[current_key] = np.array(current_matrix)
 
 for i in operations:
     if len(i) > 0:
