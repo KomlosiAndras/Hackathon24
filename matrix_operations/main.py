@@ -29,7 +29,7 @@ def matrix_operator(matrixes, operations):
 
             for j in range(2): operations.pop(i)
             array1, array2 = trasform_to_matching_shape(array1,array2)
-            operations[i-1] = np.multiply(array1, array2)
+            operations[i-1] = np.dot(array1, array2)
 
         else:
             i = find_index(operations, '+')
