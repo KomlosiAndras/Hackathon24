@@ -11,7 +11,7 @@ Találgatással dolgoztam, először végig számoltam azt az esetet ha Juliska 
 Egy 5 egység sugarú körben azok a pontok illeszkednek a körívre ahol a koordináták négyzetének összege megegyezik a kör sugarának négyzetével azaz 25-tel, először ezt az 5 négyzetre emelésével lehet elérni, ehez 0-t kell hozzáadni így a (0;5)(5;0)(-5;0)(0;-5) pontok felelnek meg a feladatnak, illetve 25öt még a 3 és 4 számok négyzetre emelésével kaphatunk, így a (3;4),(4;3),(-3;4),(-4;3),(-3;-4),(-4;-3),(3;-4),(4;-3) pontok is megfelelnek, azaz összesen 12 olyan rácspont van amire egy 5 egység sugarú kör körvönala érint.
 
 #5. feladat:
-Az AB pontok távolságát egy pitagoras tétel segítségével meg lehet határozni, ez 5, ebből ki lehet számolni hogy 5*x=2*7 -> 5*x = 14 -> x= 2.8, a háromszög AB oldalához társuló magassága 2.8 egység.
+A = (1/2)*|x1*(y2−y3)+x2*(y3−y1)+x3*(y1−y2)| képlet segítségével lehet egy háromszög csúcsainak koordinátáiból meghatározni a háromszög területét, ezt felhasználva a (1/2)*|0*(0-6)+3*(6-4)+c*(4-0)| = 7 egyenletet lehet létrehozni amit megoldva 2 megoldás születik: -5 és 2, mivel a feladatban meg van határozva hogy c nem lehet kisebb mint nulla illetve nem lehet nagyobb mint 3 ezért a helyes megoldás a 2.
 
 #6. feladat:
 
