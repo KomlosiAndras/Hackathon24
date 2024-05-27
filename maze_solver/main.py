@@ -1,3 +1,4 @@
+#returns the coordinates of the S and G characters in a given matrix
 def locate_S_G(maze):
   start = []
   goal = []
@@ -11,6 +12,8 @@ def locate_S_G(maze):
         break
   return start, goal
 
+#returns a dictionary containing the directions in which it is 
+#possible to move from a given coordinate in a given matrix
 def possible_moves(maze, position):
   moves = {
       'L': maze[position[0]][position[1]-1] == '.',
@@ -20,6 +23,9 @@ def possible_moves(maze, position):
   }
   return moves
 
+#"explores" the surrounding of a given position in a matrix, 
+#returns the directions in which is possible to continue exploration, 
+#and records from which cell the new ones were dicovered
 def explore_surrounding(maze, cursor, exploration):
   moves = possible_moves(maze, cursor)
   available = []
@@ -50,6 +56,7 @@ def explore_surrounding(maze, cursor, exploration):
 
   return available, new_exploration
 
+#"explores" a given matrix from the given start point until it finds the given end point
 def explore(maze, start, goal):
   to_be_searched = []
   explored = {f'{start[0]}-{start[1]}':start}
@@ -78,6 +85,8 @@ def explore(maze, start, goal):
     })
   return explored
 
+#from a dictionary containing which cell was discovered from where,
+#back traces the shortest possible route and returns the directions as a list
 def get_route(exploration, start, goal):
   directions = {'L': (0, 1), 'R': (0, -1), 'D': (-1, 0), 'U': (1, 0)}
   route = []
@@ -93,12 +102,14 @@ def get_route(exploration, start, goal):
         cursor = neighbour
   return route
 
+#finds a path from S to G in a given matrix and prints it
 def solve(maze):
   start, goal = locate_S_G(maze)
   exploration = explore(maze, start, goal)
   route = get_route(exploration, start, goal)
   print("S", *route, "G")
 
+#reading the input file, and storing the matrixes in a dictionary
 mazes = {}
 with open('./input.txt', 'r') as f:
   lines = f.readlines()
@@ -116,6 +127,7 @@ with open('./input.txt', 'r') as f:
       current_maze = []
   mazes[current_key] = current_maze
 
+#iterating through the mazes and solving them
 for name, maze in mazes.items():
   print(name)
   solve(maze)

@@ -1,77 +1,65 @@
 import numpy as np
 
-def trasform_to_matching_shape(matrix1, matrix2):
-    shape_y = max(m.shape[0] for m in (matrix1, matrix2))
-    shape_x = max(m.shape[1] for m in (matrix1, matrix2))
-    matrix1 = np.pad(matrix1, ((0, shape_y - matrix1.shape[0]), (0, shape_x - matrix1.shape[1])), 'constant', constant_values=0)
-    matrix2 = np.pad(matrix2, ((0, shape_y - matrix2.shape[0]), (0, shape_x - matrix2.shape[1])), 'constant', constant_values=0)
-    return matrix1, matrix2
+#returns the assigned arrays before and after the specified index in the operation list
+def get_arrays(i, operation, matrixes):
+    match operation[i-1]:
+        case str(): 
+            array1 = matrixes[operation[i-1]]
+        case _: 
+            array1 = operation[i-1]
 
-def find_index(ls, item):
+    match operation[i+1]:
+        case str(): 
+            array2 = matrixes[operation[i+1]]
+        case _: 
+            array2 = operation[i+1]
+    return array1, array2
 
-    for n, i in enumerate(ls):
-        if type(i) == str and i == item:
-            return n
-
-def matrix_operator(matrixes, operations):
-    while len(operations)>1:
-        if any('*' in i for i in operations):
-            i = find_index(operations, '*')
-            if type(operations[i-1]) == str:
-                array1 = matrixes[operations[i-1]]
-            else:
-                array1 = operations[i-1]
-
-            if type(operations[i+1]) == str:
-                array2 = matrixes[operations[i+1]]
-            else:
-                array2 = operations[i+1]
-
-            for j in range(2): operations.pop(i)
-            array1, array2 = trasform_to_matching_shape(array1,array2)
-            operations[i-1] = np.dot(array1, array2)
+#performs the given operation on the given matrixes, and returns the solution
+def matrix_operator(matrixes, operation):
+    while len(operation) > 1:
+        operators = operation[1::2]
+        if '*' in operators:
+            i = operators.index('*')*2+1
+            array1, array2 = get_arrays(i, operation, matrixes)
+            for j in range(2): operation.pop(i)
+            operation[i-1] = np.dot(array1, array2)
 
         else:
-            i = find_index(operations, '+')
-            if type(operations[i-1]) == str:
-                array1 = matrixes[operations[i-1]]
-            else:
-                array1 = operations[i-1]
+            i = operators.index('+')*2+1
+            array1, array2 = get_arrays(i, operation, matrixes)
+            for j in range(2): operation.pop(i)
+            operation[i-1] = np.add(array1, array2)
+    return operation[0]
 
-            if type(operations[i+1]) == str:
-                array2 = matrixes[operations[i+1]]
-            else:
-                array2 = operations[i+1]
+#reads input file and returns matrixes in a dictionary, and operations in a list
+def read_input_file(file):
+    matrixes = {}
+    operations = []
+    with open(file, 'r') as f:
+        lines = f.readlines()
+        current_key = ""
+        current_matrix = []
+        for i in lines:
+            i = i.rstrip()
+            if i == 'matrices':
+                read_more_matrix = True
+            elif i == "operations":
+                read_more_matrix = False
+            elif i.isalpha() and read_more_matrix:
+                if current_key:
+                    matrixes[current_key] = np.array(current_matrix)
+                current_key = i
+                current_matrix = []
+            elif read_more_matrix is False:
+                operations.append(i.split())
+            elif i:
+                current_matrix.append([int(n) for n in i.split()])
+        matrixes[current_key] = np.array(current_matrix)
+    return matrixes, operations
 
-            for j in range(2): operations.pop(i)
-            array1, array2 = trasform_to_matching_shape(array1,array2)
-            operations[i-1] = np.add(array1, array2)
-    return operations[0]
-
-matrixes = {}
-operations = []
-
-with open('./input.txt', 'r') as f:
-    lines = f.readlines()
-    current_key = ""
-    current_matrix = []
-    for i in lines:
-        i = i.rstrip()
-        if i == 'matrices':
-            read_more_matrix = True
-        elif i == "operations":
-            read_more_matrix = False
-        elif i.isalpha() and read_more_matrix:
-            if current_key:
-                matrixes[current_key] = np.array(current_matrix)
-            current_key = i
-            current_matrix = []
-        elif read_more_matrix is False:
-            operations.append(i.split())
-        elif i:
-            current_matrix.append([int(n) for n in i.split()])
-    matrixes[current_key] = np.array(current_matrix)
-
+#iterating through the operations, and printing the solutions
+matrixes, operations = read_input_file('./input.txt')
 for i in operations:
     if len(i) > 0:
         print(' '.join(i))
