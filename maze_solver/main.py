@@ -8,7 +8,7 @@ def locate_S_G(maze):
         start.extend([i, j])
       elif char == 'G':
         goal.extend([i, j])
-      if len(start)>0 and len(goal)>0:
+      if len(start) > 0 and len(goal) > 0:
         break
   return start, goal
 
@@ -30,29 +30,29 @@ def explore_surrounding(maze, cursor, exploration):
   moves = possible_moves(maze, cursor)
   available = []
   new_exploration = {}
-  if moves['L'] and f'{cursor[0]}-{cursor[1]-1}' not in exploration:
+  if moves['L'] and f'{cursor[0]}-{cursor[1] - 1}' not in exploration:
     new_exploration.update({
-      f'{cursor[0]}-{cursor[1]-1}':cursor
+      f'{cursor[0]}-{cursor[1] - 1}':cursor
     })
-    available.append([cursor[0],cursor[1]-1])
+    available.append([cursor[0],cursor[1] - 1])
 
-  if moves['R'] and f'{cursor[0]}-{cursor[1]+1}' not in exploration:
+  if moves['R'] and f'{cursor[0]}-{cursor[1] + 1}' not in exploration:
     new_exploration.update({
-      f'{cursor[0]}-{cursor[1]+1}':cursor
+      f'{cursor[0]}-{cursor[1] + 1}':cursor
     })
-    available.append([cursor[0],cursor[1]+1])
+    available.append([cursor[0],cursor[1] + 1])
 
-  if moves['U'] and f'{cursor[0]-1}-{cursor[1]}' not in exploration:
+  if moves['U'] and f'{cursor[0] - 1}-{cursor[1]}' not in exploration:
     new_exploration.update({
       f'{cursor[0]-1}-{cursor[1]}':cursor
     })
-    available.append([cursor[0]-1,cursor[1]])
+    available.append([cursor[0] - 1,cursor[1]])
 
-  if moves['D'] and f'{cursor[0]+1}-{cursor[1]}' not in exploration:
+  if moves['D'] and f'{cursor[0] + 1}-{cursor[1]}' not in exploration:
     new_exploration.update({
-      f'{cursor[0]+1}-{cursor[1]}':cursor
+      f'{cursor[0] + 1}-{cursor[1]}':cursor
     })
-    available.append([cursor[0]+1,cursor[1]])
+    available.append([cursor[0] + 1,cursor[1]])
 
   return available, new_exploration
 
@@ -62,10 +62,10 @@ def explore(maze, start, goal):
   explored = {f'{start[0]}-{start[1]}':start}
   cursor = start
   goal_around = [
-    [goal[0],goal[1]-1],
-    [goal[0],goal[1]+1],
-    [goal[0]-1,goal[1]],
-    [goal[0]+1,goal[1]],
+    [goal[0],goal[1] - 1],
+    [goal[0],goal[1] + 1],
+    [goal[0] - 1,goal[1]],
+    [goal[0] + 1,goal[1]],
   ]
   e = True
   while e:
@@ -93,12 +93,12 @@ def get_route(exploration, start, goal):
   cursor = goal
   while cursor != start:
     for key, value in directions.items():
-      neighbour = [cursor[0]+value[0], cursor[1]+value[1]]
-      nkey = f"{cursor[0]+value[0]}-{cursor[1]+value[1]}"
+      neighbour = [cursor[0] + value[0], cursor[1] + value[1]]
+      nkey = f"{cursor[0] + value[0]}-{cursor[1] + value[1]}"
       ckey = f"{cursor[0]}-{cursor[1]}"
 
       if nkey in exploration and exploration[ckey] == neighbour:
-        route.insert(0,key)
+        route.insert(0, key)
         cursor = neighbour
   return route
 
